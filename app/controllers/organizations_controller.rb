@@ -3,7 +3,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @organizations }
@@ -14,6 +13,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1.json
   def show
     @organization = Organization.find(params[:id])
+    #@stores = Store.find(params[:id])
+    #@product = Product.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
