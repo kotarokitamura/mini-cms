@@ -21,10 +21,26 @@ class OrganizationInfosController < ApplicationController
     organization_info_update
   end
 
+  def destroy
+    debugger  
+  end
+ 
+  def destroy_store
+    @store = Store.find(params[:id])
+    @store.destroy
+    redirect_to :action => "show"
+  end
+
+  def destroy_organization_info
+    @organization_info = OrganizationInfo.find(params[:id])
+    @organization_info.delete
+    redirect_to :action => "show"
+  end
+
   private
-    def organization_info_update
-      @organization = Organization.find(params[:organization_id])
-      @organization.update_attributes(params[:organization])
-      redirect_to :action => "show",notice: 'Organization was successfully updated'
-    end
+  def organization_info_update
+    @organization = Organization.find(params[:organization_id])
+    @organization.update_attributes(params[:organization])
+    redirect_to :action => "show",notice: 'Organization was successfully updated'
+  end
 end

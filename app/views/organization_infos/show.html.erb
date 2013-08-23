@@ -6,7 +6,7 @@
   <p>
     <b>Organization phone:</b>
     <%= @organization.organization_infos[i].phone %>
-  </p>
+    <%= link_to 'Destroy',"organization_infos/#{@organization.organization_infos[i].id}",method: :delete %>
   <p>
   </p>
 <% end %>
