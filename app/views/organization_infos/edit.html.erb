@@ -1,5 +1,5 @@
 <h1>Edit organization</h1>
-
+<p id="notice"><%= notice %></p>  
 <%= form_for(@organization, :url => :organization_infos) do |f| %>
   <% if @organization.errors.any? %>
     <div id="error_explanation">

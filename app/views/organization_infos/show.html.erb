@@ -1,8 +1,22 @@
+
+<h1> Organization Informations </h1>
 <p id="notice"><%= notice %></p>
+<br />
+<% @organization.organization_infos.each_with_index do |info,i| %>
+  <p>
+    <b>Organization phone:</b>
+    <%= @organization.organization_infos[i].phone %>
+  </p>
+  <p>
+  </p>
+<% end %>
+<br />
+<% @organization.stores.each_with_index do |store,i| %>
+  <p>
+    <b>Organization store:</b>
+    <%= @organization.stores[i].store_name %>
+  </p>
+<% end %>
+<%= link_to 'Edit Information',edit_organization_infos_path %>|
+<%= link_to 'Add Information',new_organization_infos_path %>
 
-<p>
-  <b>Organization phone:</b>
-  <%= @organization_info.phone %>
-</p>
-
-<%= link_to 'Edit', edit_organization_info_path(@organization_info) %> 

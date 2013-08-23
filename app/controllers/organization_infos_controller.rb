@@ -1,6 +1,6 @@
 class OrganizationInfosController < ApplicationController
   def show 
-    @organization_info = OrganizationInfo.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
   end
 
   def new
@@ -11,7 +11,6 @@ class OrganizationInfosController < ApplicationController
   
   def create
     organization_info_update
-    redirect_to @organization 
   end
 
   def edit 
@@ -20,12 +19,12 @@ class OrganizationInfosController < ApplicationController
  
   def update
     organization_info_update
-    redirect_to @organization, notice: 'successfuly update'
   end
 
   private
     def organization_info_update
       @organization = Organization.find(params[:organization_id])
       @organization.update_attributes(params[:organization])
+      redirect_to :action => "show",notice: 'Organization was successfully updated'
     end
 end

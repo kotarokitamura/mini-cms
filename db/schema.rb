@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(:version => 20130807082437) do
   create_table "organization_infos", :force => true do |t|
     t.integer  "organization_id"
     t.string   "phone"
-    t.integer  "product_information_flag"
-    t.integer  "store_information_flag"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.integer  "product_information_flag", :default => 0
+    t.integer  "store_information_flag",   :default => 0
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   create_table "organizations", :force => true do |t|
