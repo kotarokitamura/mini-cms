@@ -1,4 +1,3 @@
-
 <h1> Organization Informations </h1>
 <p id="notice"><%= notice %></p>
 <br />
@@ -15,6 +14,7 @@
   <p>
     <b>Organization store:</b>
     <%= @organization.stores[i].store_name %>
+    <%= link_to 'Destroy',"stores/#{@organization.stores[i].id}",method: :delete %>
   </p>
 <% end %>
 <%= link_to 'Edit Information',edit_organization_infos_path %> |

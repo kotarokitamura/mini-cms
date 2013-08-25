@@ -21,13 +21,9 @@ class OrganizationInfosController < ApplicationController
     organization_info_update
   end
 
-  def destroy
-    debugger  
-  end
- 
   def destroy_store
     @store = Store.find(params[:id])
-    @store.destroy
+    @store.delete
     redirect_to :action => "show"
   end
 
