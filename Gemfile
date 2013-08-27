@@ -38,3 +38,8 @@ gem 'jquery-rails'
  gem 'debugger'
 
 gem 'rspec-rails'
+
+#added twitterbootstrap
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
