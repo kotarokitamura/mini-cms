@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
+  ORGANIZATION_MAX_ITEM = 3
   def index
     @organizations = Organization.all
     respond_to do |format|
@@ -39,7 +40,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(params[:organization])
-    3.times{
+    ORGANIZATION_MAX_ITEM.times{
       @organization.stores.build
       @organization.organization_infos.build
     }
@@ -53,7 +54,6 @@ class OrganizationsController < ApplicationController
       end
     end
   end
-
   # PUT /organizations/1
   # PUT /organizations/1.json
   def update
