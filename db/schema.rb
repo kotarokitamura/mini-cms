@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20130807082437) do
 
   create_table "organizations", :force => true do |t|
     t.string   "organization_name"
-    t.string   "organization_code"
+    t.string   "organization_code", :null => false
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
