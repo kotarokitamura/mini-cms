@@ -1,6 +1,11 @@
-<h1>hello world No.2</h1>
+<h1>Hello World</h1>
 <br>
-<h2>企業名</h2>
-<h3><%= @organization.organization_name %></h3><br />
-<h2>電話番号</h2>
-<h3><%= @stores[0].store_name %></h3>
+<h2><%= @organization.organization_name %></h2>
+<br>
+<% @organization.organization_infos.each do |infos| %>
+  <%= infos.phone %><br />
+<% end %>
+<br>
+<% @organization.stores.each do |store| %>
+  <%= store.store_name %><br />
+<% end %>
