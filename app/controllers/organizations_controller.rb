@@ -44,6 +44,7 @@ class OrganizationsController < ApplicationController
       @organization.stores.build
       @organization.organization_infos.build
     }
+    @organization.view_designs.build
     respond_to do |format|
       if @organization.save
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }

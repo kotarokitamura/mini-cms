@@ -1,9 +1,18 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :organization_code, :organization_name, :organization_infos, :stores,:stores_attributes, :organization_infos_attributes, :view_designs, :view_designs_attributes
+  attr_accessible :organization_code, 
+                  :organization_name, 
+                  :stores,
+                  :stores_attributes, 
+                  :organization_infos, 
+                  :organization_infos_attributes, 
+                  :view_designs, 
+                  :view_designs_attributes
+
   has_many :organization_infos
   has_many :products
   has_many :stores
   has_many :view_designs
+
   accepts_nested_attributes_for :stores,
                                 :organization_infos,
                                 :view_designs
