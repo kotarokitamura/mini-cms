@@ -12,9 +12,7 @@ class HomepagesController < ApplicationController
      render :file => "#{Rails.root}/public/404.html"
    else
      @organization = Organization.find(organization_id)
-     render_file = Homepage.render_file(organization_id) 
-     #render :template => "homepages/show2"
-     render :template => "homepages/#{render_file}"
+     render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.erb"
    end
  end
 end
