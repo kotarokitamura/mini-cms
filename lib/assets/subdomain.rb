@@ -8,11 +8,9 @@ module Subdomain
     def get_organization_id_by_subdomain(url)
       if url_valid?(url)
         subdomain = get_organization_code(url)
-        if subdomain_valid?(subdomain)
-           get_organization_id(subdomain)      
-        else 
-        end
+        subdomain_valid?(subdomain) ? get_organization_id(subdomain) : nil
       else 
+        nil
       end
     end
 
