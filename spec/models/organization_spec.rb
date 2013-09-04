@@ -77,5 +77,11 @@ describe Organization do
       @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
       @organization.save.should be_false
     end
+
+    it 'should retrun false insert organization_code with big charactor'  do 
+      organization_code = 'A'
+      @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
+      @organization.save.should be_false
+    end
   end
 end
