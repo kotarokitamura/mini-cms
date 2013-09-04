@@ -8,29 +8,28 @@ module Subdomain
     def get_organization_id_by_subdomain(url)
       if url_valid?(url)
         subdomain = get_organization_code(url)
-        subdomain_valid?(subdomain) ? get_organization_id(subdomain) : nil
+        return subdomain_valid?(subdomain) ? get_organization_id(subdomain) : nil
       else 
-        nil
+        return nil
       end
     end
 
-    def get_organization_code(url)
-      url =~ /:\/\//     #get after "://"
-      $'=~ /\.#{DOMAIN}/ #get before ".kitasang.com"
-      $` 
+    def get_organization_code(url) 
+      url =~ /:\/\//     
+      $'=~ /\.#{DOMAIN}/ 
+      return $` 
     end
    
     def get_organization_id(organization_code)
-      Organization.find_by_organization_code(organization_code).id
+      return Organization.find_by_organization_code(organization_code).id
     end
  
     def url_valid?(url)
-      url.scan(/#{DOMAIN}/).size == 1  
+      return url.scan(/#{DOMAIN}/).size == 1  
     end
 
     def subdomain_valid?(subdomain)
-      subdomain =~ /^[0-9a-z]+$/
+      return subdomain =~ /^[0-9a-z]+$/
     end
- 
   end
 end

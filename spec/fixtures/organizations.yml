@@ -1,0 +1,27 @@
+organization1:
+  id: 1
+  organization_name: 'social groupware'
+  organization_code: 'sgw'
+  created_at: '2013-09-03 07:45:46'
+  updated_at: '2013-09-03 07:45:46'
+
+organization2:
+  id: 2 
+  organization_name: 'GAIAX'
+  organization_code: 'gaiax'
+  created_at: '2013-09-03 07:45:46'
+  updated_at: '2013-09-03 07:45:46'
+
+organization3:
+  id: 3 
+  organization_name: 'ACRORIA'
+  organization_code: 'acrorea'
+  created_at: '2013-09-03 07:45:46'
+  updated_at: '2013-09-03 07:45:46'
+
+organization4:
+  id: 4 
+  organization_name: 'ABC Mart'
+  organization_code: 'abc'
+  created_at: '2013-09-03 07:45:46'
+  updated_at: '2013-09-03 07:45:46'
