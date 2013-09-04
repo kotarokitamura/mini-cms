@@ -27,4 +27,8 @@ class Organization < ActiveRecord::Base
   validates_format_of :organization_code, 
                       :with => /\A[a-z0-9]+\z/
 
+  validates :organization_name,
+            :length => {:maximum => 100},
+            :presence => true
+  
 end
