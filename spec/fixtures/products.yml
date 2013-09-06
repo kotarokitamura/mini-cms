@@ -1,0 +1,14 @@
+product1:
+  id: 1
+  organization_id: 1
+  product_name: 'iQube'
+
+product2:
+  id: 2 
+  organization_id: 1
+  product_name: 'Mini-CMS'
+
+product3:
+  id: 3 
+  organization_id: 1
+  product_name: 'comitia'
