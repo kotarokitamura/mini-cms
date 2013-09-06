@@ -3,5 +3,5 @@ class Product < ActiveRecord::Base
   belongs_to :organization
   
   validates :product_name,
-            :length => {:maximum => 50}
+            :length => {:maximum => ResourceProperty.product_name_max_length }
 end

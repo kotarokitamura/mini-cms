@@ -1,0 +1,5 @@
+product_name_max_length: 50
+organization_code_max_length: 20
+organization_name_max_length: 100
+store_name_max_length: 50
+domain: 'kitasang.com'

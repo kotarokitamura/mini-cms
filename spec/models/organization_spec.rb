@@ -23,14 +23,14 @@ describe Organization do
       Organization.last.organization_name.should == name
     end
 
-    it 'shoule return false insert over 20 charactors  organization_name in Japanese' do 
-      name = 'あ'*101
+    it "shoule return false insert over #{ResourceProperty.organization_name_max_length} charactors  organization_name in Japanese" do 
+      name = 'あ' * ResourceProperty.organization_name_max_length + 'あ'
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
       @organization.save.should be_false
     end
 
-    it 'shoule return false insert over 20 charactors  organization_name in english' do 
-      name = 'a'*101
+    it "shoule return false insert over #{ResourceProperty.organization_code_max_length} charactors  organization_name in english" do 
+      name = 'a' * ResourceProperty.organization_name_max_length + 'a'
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
       @organization.save.should be_false
     end
@@ -54,14 +54,14 @@ describe Organization do
       @organization.save.should be_false
     end
 
-    it 'should retrun false insert over 20 charactor to organization_code in English' do 
-      organization_code = 'a'*21
+    it "should retrun false insert over #{ResourceProperty.organization_code_max_length} charactor to organization_code in English" do 
+      organization_code = 'a' * ResourceProperty.organization_code_max_length + 'a'
       @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
       @organization.save.should be_false
     end
 
     it 'should retrun false insert organization_code in Japanese' do 
-      organization_code = 'あ'*21
+      organization_code = 'あああ'
       @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
       @organization.save.should be_false
     end

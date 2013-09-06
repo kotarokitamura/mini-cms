@@ -5,10 +5,9 @@ class Store < ActiveRecord::Base
   accepts_nested_attributes_for :organization
 
   validates :store_name,
-            :length => {:maximum => 50}
+            :length => {:maximum => ResourceProperty.store_name_max_length}
 
   validates :organization_id,
             :numericality => {:only_integer => true}
-
 
 end

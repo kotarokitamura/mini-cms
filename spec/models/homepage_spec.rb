@@ -5,23 +5,23 @@ describe Homepage do
   fixtures :organizations  
 
   context 'with url have many pattern' do 
-    it 'should return true when kitasang.com include only one ' do
-      url = 'http://hoge.kitasang.com'
+    it "should return true when #{ResourceProperty.domain} include only one " do
+      url = "http://hoge.#{ResourceProperty.domain}"
       Homepage.url_valid?(url).should be_true
     end
 
-    it 'should return true when kitasang.com include plural ' do
-      url = 'http://hoge.kitasang.com.kitasang.com'
+    it "should return true when #{ResourceProperty.domain} include plural" do
+      url = "http://hoge.#{ResourceProperty.domain}.#{ResourceProperty.domain}"
       Homepage.url_valid?(url).should be_false
     end
 
     it 'should get correct organization_code' do
-      url = 'http://sgw.kitasang.com'
+      url = "http://sgw.#{ResourceProperty.domain}"
       Homepage.get_organization_code(url).should == 'sgw'
     end
     
     it 'should get uncorrect organization_code' do
-      url = 'http://sgw.kitasang.com'
+      url = "http://sgw.#{ResourceProperty.domain}"
       Homepage.get_organization_code(url).should_not == 'aaa'
     end
   end

@@ -9,26 +9,26 @@ describe Product do
   end
 
   context 'with insert some data' do 
-    it 'should return true when insert under 50 charactors in product_name in English' do
-      product_name = 'a'*50
+    it "should return true when insert under #{ResourceProperty.product_name_max_length} charactors in product_name in English" do
+      product_name = 'a' * ResourceProperty.product_name_max_length
       @product.attributes = {:organization_id => 1, :product_name => product_name} 
       @product.save.should be_true
     end
  
-    it 'should return false when insert over 50 charactors in product_name in English' do
-      product_name = 'a'*51
+    it "should return false when insert over #{ResourceProperty.product_name_max_length} charactors in product_name in English" do
+      product_name = 'a' * ResourceProperty.product_name_max_length + 'a' 
       @product.attributes = {:organization_id => 1, :product_name => product_name} 
       @product.save.should be_false
     end
 
-    it 'should return false when insert over 50 charactors in product_name in Japanese' do
-      product_name = 'あ'*51
+    it "should return false when insert over #{ResourceProperty.product_name_max_length} charactors in product_name in Japanese" do
+      product_name = 'あ' * ResourceProperty.product_name_max_length + 'あ'
       @product.attributes = {:organization_id => 1, :product_name => product_name} 
       @product.save.should be_false
     end
 
-    it 'should return true when insert under 50 charactors in product_name in Japanese' do
-      product_name = 'あ'*50
+    it "should return true when insert under #{ResourceProperty.product_name_max_length} charactors in product_name in Japanese" do
+      product_name = 'あ' * ResourceProperty.product_name_max_length 
       @product.attributes = {:organization_id => 1, :product_name => product_name} 
       @product.save.should be_true
     end

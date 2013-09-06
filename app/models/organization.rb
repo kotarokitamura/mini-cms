@@ -18,7 +18,7 @@ class Organization < ActiveRecord::Base
                                 :view_designs
  
   validates :organization_code,
-            :length => {:maximum => 20},
+            :length => {:maximum => ResourceProperty.organization_code_max_length},
             :presence => true
 
   validates_uniqueness_of :organization_code, 
@@ -28,7 +28,7 @@ class Organization < ActiveRecord::Base
                       :with => /\A[a-z0-9]+\z/
 
   validates :organization_name,
-            :length => {:maximum => 100},
+            :length => {:maximum => ResourceProperty.organization_name_max_length},
             :presence => true
   
 end
