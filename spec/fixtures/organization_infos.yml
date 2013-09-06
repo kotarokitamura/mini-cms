@@ -1,0 +1,18 @@
+organization_info1:
+  id: 1
+  organization_id: 1
+  phone: '000-000-000'
+  product_information_flag: 0
+  store_information_flag: 0
+  created_at: '2013-09-03 07:45:12'
+  updated_at: '2013-09-03 07:45:12'
+
+organization_info2:
+  id: 2 
+  organization_id: 1
+  phone: '111-000-000'
+  product_information_flag: 1 
+  store_information_flag: 1  
+  created_at: '2013-09-03 07:45:12'
+
+  updated_at: '2013-09-03 07:45:12'
