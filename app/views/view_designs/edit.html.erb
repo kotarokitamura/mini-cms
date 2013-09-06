@@ -15,8 +15,8 @@
   </div>
     <br />
     <%= f.fields_for :view_designs do |view| %>
-      <%= view.label :design_number %><br />
-      <%= view.text_field :design_number %><br />
+      <p>Design No.1</p><%= view.radio_button :design_number,0,{} %><br>
+      <p>Design No.2</p><%= view.radio_button :design_number,1,{} %>
     <% end %>
     <br />
   <div class="actions">
