@@ -1,0 +1,14 @@
+store1:
+  id: 1
+  organization_id: 1
+  store_name: 'Gotanda'
+
+store2:
+  id: 2 
+  organization_id: 1
+  store_name: 'Osaki'
+
+store3:
+  id: 3 
+  organization_id: 1
+  store_name: 'Shibuya'

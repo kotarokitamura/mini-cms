@@ -10,4 +10,5 @@ class Store < ActiveRecord::Base
   validates :organization_id,
             :numericality => {:only_integer => true}
 
+
 end
