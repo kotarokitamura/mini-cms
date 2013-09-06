@@ -1,5 +1,4 @@
 module Subdomain
-  DOMAIN = "kitasang.com"
   def self.included(base)
     base.extend ClassMethods
   end
@@ -16,7 +15,7 @@ module Subdomain
 
     def get_organization_code(url) 
       url =~ /:\/\//     
-      $'=~ /\.#{DOMAIN}/ 
+      $'=~ /\.#{ResourceProperty.domain}/ 
       return $` 
     end
    
@@ -25,7 +24,7 @@ module Subdomain
     end
  
     def url_valid?(url)
-      return url.scan(/#{DOMAIN}/).size == 1  
+      return url.scan(/#{ResourceProperty.domain}/).size == 1  
     end
 
     def subdomain_valid?(subdomain)
