@@ -23,7 +23,7 @@
     <br />
     <br />
       <% @organization.products.each_with_index do |org,i| %>
-        <%= f.fields_for :organization_infos, org do |prd| %>
+        <%= f.fields_for :products, org do |prd| %>
           <%= prd.label :product_name %><br />
           <%= prd.text_field :product_name %><br />
         <% end %>

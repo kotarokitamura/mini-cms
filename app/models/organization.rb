@@ -8,8 +8,7 @@ class Organization < ActiveRecord::Base
                   :view_designs, 
                   :view_designs_attributes,
                   :products,
-                  :products_attributes,
-                  :product_name
+                  :products_attributes
               
 
   has_many :organization_infos

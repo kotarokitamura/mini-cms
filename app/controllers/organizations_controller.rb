@@ -41,8 +41,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(params[:organization])
     ResourceProperty.organization_max_item.times{
       @organization.stores.build
-      @organization.organization_infos.build
       @organization.products.build
+      @organization.organization_infos.build
     }
     @organization.view_designs.build
     respond_to do |format|
