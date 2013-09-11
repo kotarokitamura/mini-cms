@@ -6,16 +6,21 @@ class Organization < ActiveRecord::Base
                   :organization_infos, 
                   :organization_infos_attributes, 
                   :view_designs, 
-                  :view_designs_attributes
+                  :view_designs_attributes,
+                  :products,
+                  :products_attributes,
+                  :product_name
+              
 
   has_many :organization_infos
-  has_many :products
   has_many :stores
   has_many :view_designs
+  has_many :products
 
   accepts_nested_attributes_for :stores,
                                 :organization_infos,
-                                :view_designs
+                                :view_designs,
+                                :products
  
   validates :organization_code,
             :length => {:maximum => ResourceProperty.organization_code_max_length},

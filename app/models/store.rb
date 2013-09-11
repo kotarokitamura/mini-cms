@@ -7,7 +7,4 @@ class Store < ActiveRecord::Base
   validates :store_name,
             :length => {:maximum => ResourceProperty.store_name_max_length}
 
-  validates :organization_id,
-            :numericality => {:only_integer => true}
-
 end

@@ -22,6 +22,14 @@
       <% end %>
     <br />
     <br />
+      <% @organization.products.each_with_index do |org,i| %>
+        <%= f.fields_for :organization_infos, org do |prd| %>
+          <%= prd.label :product_name %><br />
+          <%= prd.text_field :product_name %><br />
+        <% end %>
+      <% end %>
+    <br />
+    <br />
     <% @organization.stores.each_with_index do |org,i| %>
       <%= f.fields_for :stores, org  do |store| %>
         <%= store.label :store_name %><br />

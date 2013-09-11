@@ -15,10 +15,10 @@ describe OrganizationInfo do
       @organization_info.save.should be_true
     end
 
-    it 'should return false insert blank' do
+    it 'should return true insert blanck in phone' do
       phone = ''
       @organization_info.attributes = {:organization_id => 1, :phone => phone}
-      @organization_info.save.should be_false
+      @organization_info.save.should be_true
     end
 
     it 'should return false insert uncorrect charactors' do

@@ -6,8 +6,6 @@ class OrganizationInfosController < ApplicationController
   def update
     @organization = Organization.find(params[:organization_id])
     @organization.update_attributes(params[:organization])
-    respond_to do |format|
-      format.html{redirect_to :action => "edit"}
-    end
+    redirect_to ({:action => 'edit'}), :notice => t('updated_message') 
   end
 end

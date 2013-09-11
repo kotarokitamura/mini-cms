@@ -1,7 +1,6 @@
 class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
-  ORGANIZATION_MAX_ITEM = 3
   def index
     @organizations = Organization.all
     respond_to do |format|
@@ -40,14 +39,15 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(params[:organization])
-    ORGANIZATION_MAX_ITEM.times{
+    ResourceProperty.organization_max_item.times{
       @organization.stores.build
       @organization.organization_infos.build
+      @organization.products.build
     }
     @organization.view_designs.build
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+        format.html { redirect_to @organization, notice: t('created_message') }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.update_attributes(params[:organization])
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
+        format.html { redirect_to @organization, notice: t('updated_message') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
