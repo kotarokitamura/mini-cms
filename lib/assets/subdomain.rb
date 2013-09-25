@@ -2,33 +2,31 @@ module Subdomain
   def self.included(base)
     base.extend ClassMethods
   end
- 
+
   module ClassMethods
     def get_organization_id_by_subdomain(url)
-      if url_valid?(url)
-        subdomain = get_organization_code(url)
-        return subdomain_valid?(subdomain) ? get_organization_id(subdomain) : nil
-      else 
-        return nil
-      end
+      return nil unless url_valid?(url)
+      subdomain = get_organization_code(url)
+      return nil unless subdomain_valid?(subdomain)
+      get_organization_id(subdomain)
     end
 
-    def get_organization_code(url) 
-      url =~ /:\/\//     
-      $'=~ /\.#{ResourceProperty.domain}/ 
-      return $` 
+    def get_organization_code(url)
+      url =~ /:\/\//
+      $'=~ /\.#{ResourceProperty.domain}/
+      $`
     end
-   
+
     def get_organization_id(organization_code)
-      return Organization.find_by_organization_code(organization_code).id
+      Organization.find_by_organization_code(organization_code).id
     end
- 
+
     def url_valid?(url)
-      return url.scan(/#{ResourceProperty.domain}/).size == 1  
+      url.scan(/#{ResourceProperty.domain}/).size == 1
     end
 
     def subdomain_valid?(subdomain)
-      return subdomain =~ /^[0-9a-z]+$/
+      subdomain =~ /^[0-9a-z]+$/
     end
   end
 end
