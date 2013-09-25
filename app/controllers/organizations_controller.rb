@@ -45,6 +45,7 @@ class OrganizationsController < ApplicationController
       @organization.organization_infos.build
     }
     @organization.view_designs.build
+    @organization.images.build
     respond_to do |format|
       if @organization.save
         format.html { redirect_to @organization, notice: t('created_message') }
