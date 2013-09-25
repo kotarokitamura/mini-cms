@@ -21,7 +21,8 @@ class Organization < ActiveRecord::Base
   accepts_nested_attributes_for :stores,
                                 :organization_infos,
                                 :view_designs,
-                                :products
+                                :products,
+                                :images
  
   validates :organization_code,
             :length => {:maximum => ResourceProperty.organization_code_max_length},

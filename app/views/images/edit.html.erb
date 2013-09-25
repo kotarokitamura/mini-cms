@@ -1,5 +1,6 @@
 <h1>upload images</h1>
 <p id="notice"><%= notice %></p>  
+<%= image_tag @organization.images.first.logo.url(:thumb)  %>
 <%= form_for(@organization, :url => :images) do |f| %>
   <% if @organization.errors.any? %>
     <div id="error_explanation">
@@ -14,11 +15,10 @@
   <div class="field">
   </div>
     <br />
-      <% @organization.images.each_with_index do |org,i| %>
-        <%= f.fields_for :images, org do |img| %>
-          <%= img.label :logo_image %><br />
-          <%= info.file_field :logo %><br />
-        <% end %>
+    <% @organization.images.each_with_index do |org,i| %>
+      <%= f.fields_for :images, org do |img| %>
+        <%= img.label :logo_image %><br />
+        <%= img.file_field :logo %><br />
       <% end %>
     <% end %>
   <div class="actions">
@@ -27,4 +27,3 @@
   </div>
 <% end %>
 <br />
-<%= link_to 'Back', organizations_path %>
