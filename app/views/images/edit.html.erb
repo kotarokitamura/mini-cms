@@ -1,0 +1,30 @@
+<h1>upload images</h1>
+<p id="notice"><%= notice %></p>  
+<%= form_for(@organization, :url => :images) do |f| %>
+  <% if @organization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+      <ul>
+      <% @organization.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  </div>
+    <br />
+      <% @organization.images.each_with_index do |org,i| %>
+        <%= f.fields_for :images, org do |img| %>
+          <%= img.label :logo_image %><br />
+          <%= info.file_field :logo %><br />
+        <% end %>
+      <% end %>
+    <% end %>
+  <div class="actions">
+    <br />
+    <%= f.submit %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Back', organizations_path %>

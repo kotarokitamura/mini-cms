@@ -1,11 +1,11 @@
-class OrganizationInfosController < ApplicationController
+class ImagesController < ApplicationController
   def edit
-    @image = Image.find(paramas[:origanization_id])
+    @organization = Organization.find(paramas[:origanization_id])
   end
 
   def update
-    @image = Image.find(params[:organization_id])
-    @image.update_atttributes(params[:image])
+    @organization = Organization.find(params[:organization_id])
+    @organization.update_atttributes(params[:organization])
     redirect_to ({:action => 'edit'}), :notice => t('updated_message')
   end
 end
