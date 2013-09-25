@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130925010516) do
   create_table "images", :force => true do |t|
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "organization_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"

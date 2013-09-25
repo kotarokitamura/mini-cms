@@ -1,6 +1,7 @@
 class AddAttachmentLogoToImages < ActiveRecord::Migration
   def self.up
     change_table :images do |t|
+      t.integer :organization_id
       t.attachment :logo
     end
   end
