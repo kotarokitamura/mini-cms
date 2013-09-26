@@ -9,7 +9,7 @@ class HomepagesController < ApplicationController
  def show
    organization_id = Homepage.get_organization_id_by_subdomain(request.url) or InvalidUrlError
    @organization = Organization.where(id: organization_id).first
-   render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.erb"
+   render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.haml"
  end
 
 end
