@@ -1,6 +1,6 @@
 class HomepagesController < ApplicationController
  def preview
-   @organization = Organization.find(params[:id])
+   @organization = Organization.where(id: params[:id]).first
    @organization_infos = @organization.organization_infos
    @stores = @organization.stores
    render :template => "homepages/show"

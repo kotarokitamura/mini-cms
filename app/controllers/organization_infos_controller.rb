@@ -1,10 +1,10 @@
 class OrganizationInfosController < ApplicationController
   def edit
-    @organization = Organization.find(params[:organization_id])
+    @organization = Organization.where(id: params[:organization_id]).first
   end
 
   def update
-    @organization = Organization.find(params[:organization_id])
+    @organization = Organization.where(id: params[:organization_id]).first
     @organization.update_attributes(params[:organization])
     redirect_to ({:action => 'edit'}), :notice => t('updated_message')
   end
