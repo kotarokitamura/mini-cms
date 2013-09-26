@@ -39,5 +39,5 @@ class Organization < ActiveRecord::Base
             :presence => true
 
   default_scope :order => 'created_at DESC'
-  paginates_per 1 
+  paginates_per ResourceProperty.paginate_limit
 end

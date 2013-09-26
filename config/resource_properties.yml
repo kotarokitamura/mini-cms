@@ -4,3 +4,4 @@ organization_name_max_length: 100
 store_name_max_length: 50
 domain: 'kitasang.com'
 organization_max_item: 3
+paginate_limit: 2
