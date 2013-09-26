@@ -15,20 +15,11 @@
       %td= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Organization', new_organization_path
-
 %br/
 %br/
 %p
-  ページ:
+  = t('page')
   = @organizations.current_page
   \/
   = @organizations.num_pages
-  %br
-  = @organizations.total_count
-  件中
-  = @organizations.offset_value
-  〜
-  = @organizations.offset_value + @organizations.length
-  件を表示しています
-
   = paginate @organizations
