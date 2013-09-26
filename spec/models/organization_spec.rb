@@ -12,15 +12,13 @@ describe Organization do
     it 'shoule return ture insert correct organization_name in English' do 
       name = 'social groupware' 
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
-      @organization.save
-      Organization.last.organization_name.should == name
+      @organization.save.should be_true
     end
 
     it 'shoule return ture insert correct organization_name in Japanese' do 
       name = '株式会社ソーシャルグループウェア'
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
-      @organization.save
-      Organization.last.organization_name.should == name
+      @organization.save.should be_true
     end
 
     it "shoule return false insert over #{ResourceProperty.organization_name_max_length} charactors  organization_name in Japanese" do 
@@ -44,8 +42,7 @@ describe Organization do
     it 'should retrun true insert correct organization_code' do 
       organization_code = 'hogehoge123'
       @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
-      @organization.save
-      Organization.last.organization_code.should == organization_code
+      @organization.save.should be_true
     end
 
     it 'should retrun false insert blank to organization_code' do 
