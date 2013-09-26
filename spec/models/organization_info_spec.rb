@@ -3,11 +3,11 @@ require 'spec_helper'
 
 describe OrganizationInfo do
   fixtures :organizations, :organization_infos
- 
+
   before do
     @organization_info = OrganizationInfo.new
-  end 
- 
+  end
+
   context 'with insert some datas' do
     it 'should return true insert correct phone' do
       phone = '000-000-0000'
@@ -62,5 +62,5 @@ describe OrganizationInfo do
       @organization_info.attributes = {:organization_id => 1, :phone => '000-000-0000', :store_information_flag => store_info_falg}
       @organization_info.save.should be_false
     end
-  end     
+  end
 end
