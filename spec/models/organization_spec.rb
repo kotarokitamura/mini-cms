@@ -8,6 +8,13 @@ describe Organization do
     @organization = Organization.new
   end
 
+  context 'with using pagination' do
+    it "should get #{ResourceProperty.paginate_limit} organizations" do
+      @organizations = Organization.page
+      @organizations.count == ResourceProperty.paginate_limit
+    end
+  end
+
   context 'with insert some datas' do
     it 'shoule return ture insert correct organization_name in English' do 
       name = 'social groupware' 
