@@ -16,7 +16,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'haml-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -46,3 +46,6 @@ gem "twitter-bootstrap-rails"
 
 #added paperclip for upload image
 gem 'paperclip'
+group :development do
+  gem 'erb2haml'
+end
