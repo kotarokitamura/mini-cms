@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925010516) do
+ActiveRecord::Schema.define(:version => 20130927011605) do
 
   create_table "images", :force => true do |t|
     t.datetime "created_at",        :null => false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20130925010516) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
+
+  add_index "organizations", ["organization_code"], :name => "index_organizations_on_organization_code", :unique => true
 
   create_table "products", :force => true do |t|
     t.integer  "organization_id"
