@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :organization_id, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :organization_id, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
   belongs_to :organization
   accepts_nested_attributes_for :organization
   # Include default devise modules. Others available are:

@@ -10,4 +10,9 @@
       = notice
     %p{:class => "alert"}
       = alert
+    - if user_signed_in?
+      %p
+        Logged in as
+        = current_user.first_name
+      = link_to "Logout", destroy_user_session_path, method: :delete
     = yield
