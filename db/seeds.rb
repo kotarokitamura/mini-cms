@@ -37,3 +37,7 @@ Store.create(:organization_id => 3, :store_name => '渋谷')
 ViewDesign.create(:organization_id => 1, :design_number => 0)
 ViewDesign.create(:organization_id => 2, :design_number => 1)
 ViewDesign.create(:organization_id => 3, :design_number => 2)
+
+User.create(:id => 1, :email => 'test@example.com', :password => 'password', :organization_id => 1, :first_name => 'Kotaro', :last_name => 'Kitamura')
+User.create(:id => 2, :email => 'test1@example.com', :password => 'password', :organization_id => 2, :first_name => 'Taro', :last_name => 'Sato')
+User.create(:id => 3, :email => 'test2@example.com', :password => 'password', :organization_id => 3, :first_name => 'Satoshi', :last_name => 'Tanaka')
