@@ -1,5 +1,7 @@
 Minicms::Application.routes.draw do
 
+  devise_for :users
+
   resources :organizations
 
   match "organizations/:organization_id/organization_infos", :via => :get, :to => "organization_infos#edit", :as => "edit_organization_infos"
