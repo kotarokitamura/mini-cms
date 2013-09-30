@@ -10,7 +10,7 @@ class Organization < ActiveRecord::Base
                   :products,
                   :products_attributes,
                   :images,
-                  :images_attributes
+                  :images_attributes,
                   :users,
                   :users_attributes
 

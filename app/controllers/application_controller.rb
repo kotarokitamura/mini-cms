@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :authenticate_user!
+
   rescue_from Exception, :with => :handle_exceptions unless Rails.application.config.consider_all_requests_local
 
   private
