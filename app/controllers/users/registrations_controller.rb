@@ -19,4 +19,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render action: "new"
     end
   end
+
+  def next_new_user
+    p "hogehogehogehogehoge"
+  end
+
+  def create_next_new_user
+  end
 end
