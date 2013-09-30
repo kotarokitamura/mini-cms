@@ -4,7 +4,7 @@ Minicms::Application.routes.draw do
   :registrations => 'users/registrations'
   }
 
-  resources :organizations
+  resources :organizations, :except => [:index, :new, :create]
 
   match "organizations/:organization_id/organization_infos", :via => :get, :to => "organization_infos#edit", :as => "edit_organization_infos"
   match "organizations/:organization_id/organization_infos", :via => :put, :to => "organization_infos#update", :as => "organization_infos"
@@ -17,5 +17,5 @@ Minicms::Application.routes.draw do
   match "organizations/:organization_id/image", :via => :get, :to => "images#edit" 
   match "organizations/:organization_id/image", :via => :put, :to => "images#update", :as => "images"
 
-  root :to => "homepages#show"
+  root :to => "organizations#show"
 end
