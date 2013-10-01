@@ -1,4 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  def index
+    @users = User.find_all_by_organization_id(current_user.organization_id)
+  end
   def new
     @organization = Organization.new
     @organization.users.build
@@ -21,13 +24,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def next_new_user
-    @user = User.new(organization_id: params[:organization_id])
+    @user = User.new
   end
 
   def create_next_new_user
     @user = User.new(params[:user])
-    @user.organization_id = params[:organization_id]
+    @user.organization_id = current_user.organization_id 
     @user.save
-    redirect_to :action => "next_new_user"
+    redirect_to :action => "index"
   end
 end
