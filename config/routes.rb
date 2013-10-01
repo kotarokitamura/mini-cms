@@ -25,5 +25,5 @@ Minicms::Application.routes.draw do
   match "organizations/image", :via => :get, :to => "images#edit"
   match "organizations/image", :via => :put, :to => "images#update", :as => "images"
 
-  root :to => "organizations#show"
+  root :to => "homepages#show"
 end
