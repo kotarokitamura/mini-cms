@@ -8,7 +8,8 @@
         prohibited this organization from being saved:
       %ul
         - @organization.errors.full_messages.each do |msg|
-          %li= msg
+          %li
+            = msg
   .field
   %br/
   = f.fields_for :view_designs do |view|
@@ -21,5 +22,3 @@
   .actions
     %br/
     = f.submit
-%br/
-= link_to 'Back', organizations_path
