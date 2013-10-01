@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Organization do
   fixtures :organizations
-  
+
   before do 
     @organization = Organization.new
   end
@@ -17,7 +17,7 @@ describe Organization do
 
   context 'with insert some datas' do
     it 'shoule return ture insert correct organization_name in English' do 
-      name = 'social groupware' 
+      name = 'social groupware'
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
       @organization.save.should be_true
     end
@@ -43,9 +43,9 @@ describe Organization do
     it 'shoule return false insert blank' do 
       name = ''
       @organization.attributes = {:organization_name => name, :organization_code => 'hogehoge'}
-      @organization.save.should be_false
+      @organization.save.should be_true
     end
-    
+
     it 'should retrun true insert correct organization_code' do 
       organization_code = 'hogehoge123'
       @organization.attributes = {:organization_name => 'organization_name', :organization_code => organization_code }
