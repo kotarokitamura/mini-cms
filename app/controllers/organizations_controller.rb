@@ -1,24 +1,18 @@
 class OrganizationsController < ApplicationController
   def show
-    @organization = Organization.where(id: params[:id]).first
+    @organization = Organization.find(current_user.organization_id)
   end
 
   def edit
-    @organization = Organization.where(id: params[:id]).first
+    @organization = Organization.find(current_user.organization_id)
   end
 
   def update
-    @organization = Organization.where(id: params[:id]).first
+    @organization = Organization.find(current_user.organization_id)
     if @organization.update_attributes(params[:organization])
-      redirect_to @organization, notice: t('updated_message')
+      redirect_to action: 'show', notice: t('updated_message')
     else
       render action: "edit"
     end
-  end
-
-  def destroy
-    @organization = Organization.where(id: params[:id]).first
-    @organization.destroy
-    redirect_to organizations_url
   end
 end

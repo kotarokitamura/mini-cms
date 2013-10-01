@@ -9,8 +9,9 @@ Minicms::Application.routes.draw do
     match "organizations/:organization_id/users", :via => :post, :to => "users/registrations#create_next_new_user", :as => "create_next_new_user"
   end
 
-
-  resources :organizations, :except => [:index, :new, :create]
+  match "organizations", :via => :get, :to => "organizations#show", :as => "organizations_show"
+  match "organizations/edit", :via => :get, :to => "organizations#edit", :as => "organizations_edit"
+  match "organizations/edit", :via => :put, :to => "organizations#update", :as => "organizations_update"
 
   match "organizations/:organization_id/organization_infos", :via => :get, :to => "organization_infos#edit", :as => "edit_organization_infos"
   match "organizations/:organization_id/organization_infos", :via => :put, :to => "organization_infos#update", :as => "organization_infos"

@@ -1,8 +1,9 @@
-%p#notice= notice
+%p
+  #notice= notice
 %p
   %b Organization name:
   = @organization.organization_name
 %p
   %b Organization code:
   = @organization.organization_code
-\#{link_to 'Edit', edit_organization_path(@organization)} 
+= link_to 'Edit', :action => 'edit' 
