@@ -2,9 +2,9 @@
 require 'spec_helper'
 
 describe Homepage do
-  fixtures :organizations  
+  fixtures :organizations
 
-  context 'with url have many pattern' do 
+  context 'with url have many pattern' do
     it "should return true when #{ResourceProperty.domain} include only one " do
       url = "http://hoge.#{ResourceProperty.domain}"
       Homepage.url_valid?(url).should be_true

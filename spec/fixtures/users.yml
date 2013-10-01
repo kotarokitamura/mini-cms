@@ -1,0 +1,23 @@
+user1:
+  id: 1
+  organization_id: 1
+  email: 'hoge1@example.com'
+  password: 'password'
+  first_name: 'Tana'
+  last_name: 'Taro'
+
+product2:
+  id: 2 
+  organization_id: 1
+  email: 'hoge2@example.com'
+  password: 'password'
+  first_name: 'Shiba'
+  last_name: 'Mito'
+
+product3:
+  id: 3 
+  organization_id: 1
+  email: 'hoge3@example.com'
+  password: 'password'
+  first_name: 'Dore'
+  last_name: 'Michi'
