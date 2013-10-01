@@ -1,8 +1,4 @@
 class OrganizationsController < ApplicationController
-  def show
-    @organization = Organization.find(current_user.organization_id)
-  end
-
   def edit
     @organization = Organization.find(current_user.organization_id)
   end
@@ -10,9 +6,9 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     if @organization.update_attributes(params[:organization])
-      redirect_to action: 'show', notice: t('updated_message')
+      redirect_to action: 'edit', notice: t('updated_message')
     else
-      render action: "edit"
+      redirect_to action: 'edit'
     end
   end
 end

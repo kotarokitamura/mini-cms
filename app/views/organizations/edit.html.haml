@@ -1,7 +1,7 @@
 %h1
   Editing organization
 %p#notice= notice
-= form_for(@organization, :url => {:action => 'update'}) do |f|
+= form_for(@organization, :url => {action: 'update'}) do |f|
   - if @organization.errors.any?
     #error_explanation
       %h2
@@ -20,4 +20,4 @@
     = f.text_field :organization_code
   .actions
     = f.submit
-= link_to 'Show', :action => 'show'
+= link_to 'organization_info', edit_organization_infos_path
