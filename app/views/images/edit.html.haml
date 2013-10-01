@@ -1,4 +1,5 @@
-%h1 upload images
+%h1 
+  = t('attributes.h1.upload_image')
 %p#notice= notice
 = image_tag @organization.images.first.logo.url(:thumb)
 = form_for(@organization, :url => :images) do |f|
@@ -14,7 +15,7 @@
   %br/
   - @organization.images.each_with_index do |org,i|
     = f.fields_for :images, org do |img|
-      = img.label :logo_image
+      = img.label t('attributes.image.logo_image')
       %br/
       = img.file_field :logo
       %br/

@@ -1,4 +1,5 @@
-%h1 Edit organization
+%h1
+  = t('attributes.view_design.edit_view_desin')
 %p#notice= notice
 = form_for(@organization, :url => :view_designs) do |f|
   - if @organization.errors.any?
@@ -13,10 +14,14 @@
   .field
   %br/
   = f.fields_for :view_designs do |view|
-    %p Design No.1
+    %p
+      = t('attributes.view_design.design_number')
+      1
     = view.radio_button :design_number,0,{}
     %br/
-    %p Design No.2
+    %p
+      = t('attributes.view_design.design_number')
+      2
     = view.radio_button :design_number,1,{}
   %br/
   .actions
