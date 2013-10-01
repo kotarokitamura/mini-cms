@@ -1,28 +1,31 @@
-%h2 Sign up
+%h2
+  = t('attributes.h1.add_user')
 = form_for(@organization, :url => registration_path(resource_name)) do |org|
-  = org.label :organizatoin_code
+  = org.label t('attributes.organization.organization_code')
   = org.text_field :organization_code
   - @organization.users.each_with_index do |g, i|
     = org.fields_for :users, g do |f|
       %div
-        = f.label :first_name
+        = f.label t('attributes.user.first_name')
         %br/
         = f.text_field :first_name, :autofocus => true
       %div
-        = f.label :last_name
+        = f.label t('attributes.user.last_name')
         %br/
         = f.text_field :last_name, :autofocus => true
       %div
-        = f.label :email
+        = f.label t('attributes.user.email')
         %br/
         = f.email_field :email, :autofocus => true
       %div
-        = f.label :password
+        = f.label t('attributes.user.password')
         %br/
         = f.password_field :password
       %div
-        = f.label :password_confirmation
+        = f.label t('attributes.user.password_confirmation')
         %br/
         = f.password_field :password_confirmation
-    %div= org.submit "Sign up"
+      %div
+      = org.submit t('attributes.devise.sign_up') 
+      %br/
   = render "devise/shared/links"

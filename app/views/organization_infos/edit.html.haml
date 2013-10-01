@@ -1,4 +1,5 @@
-%h1 Edit organization
+%h1 
+  =t('attributes.h1.editing_organization_info') 
 %p#notice= notice
 = form_for(@organization, :url => {action: 'update'}) do |f|
   - if @organization.errors.any?
@@ -13,7 +14,7 @@
   %br/
   - @organization.organization_infos.each_with_index do |org,i|
     = f.fields_for :organization_infos, org do |info|
-      = info.label :phone
+      = info.label t('attributes.organization_info.phone')
       %br/
       = info.text_field :phone
       %br/
@@ -21,7 +22,7 @@
   %br/
   - @organization.products.each_with_index do |org,i|
     = f.fields_for :products, org do |prd|
-      = prd.label :product_name
+      = prd.label t('attributes.product.product_name')
       %br/
       = prd.text_field :product_name
       %br/
@@ -29,7 +30,7 @@
   %br/
   - @organization.stores.each_with_index do |org,i|
     = f.fields_for :stores, org  do |store|
-      = store.label :store_name
+      = store.label t('attributes.store.store_name')
       %br/
       = store.text_field :store_name
       %br/
