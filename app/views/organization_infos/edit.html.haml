@@ -1,6 +1,6 @@
 %h1 Edit organization
 %p#notice= notice
-= form_for(@organization, :url => :organization_infos) do |f|
+= form_for(@organization, :url => {action: 'update'}) do |f|
   - if @organization.errors.any?
     #error_explanation
       %h2
@@ -37,4 +37,3 @@
     %br/
     = f.submit
 %br/
-= link_to 'Back', organizations_path
