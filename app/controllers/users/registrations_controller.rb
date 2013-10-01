@@ -21,9 +21,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def next_new_user
-    p "hogehogehogehogehoge"
+    @user = User.new(organization_id: params[:organization_id])
   end
 
   def create_next_new_user
+    @user = User.new(params[:user])
+    @user.organization_id = params[:organization_id]
+    @user.save
+    redirect_to :action => "next_new_user"
   end
 end

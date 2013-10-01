@@ -6,7 +6,7 @@ Minicms::Application.routes.draw do
 
   devise_scope :user do 
     match "organizations/:organization_id/users", :via => :get, :to => "users/registrations#next_new_user"
-    match "organizations/:organization_id/users", :via => :post, :to => "users/registrations#create_next_new_user"
+    match "organizations/:organization_id/users", :via => :post, :to => "users/registrations#create_next_new_user", :as => "create_next_new_user"
   end
 
 
