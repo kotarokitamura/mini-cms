@@ -240,3 +240,4 @@ ja:
       design_number: デザイン番号
   action:
     updated_message: アップデートに成功しました
+    failed_update_message: アップデートに失敗しました

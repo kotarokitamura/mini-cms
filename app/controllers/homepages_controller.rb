@@ -3,7 +3,7 @@ class HomepagesController < ApplicationController
     @organization = Organization.find(current_user.organization_id)
     @organization_infos = @organization.organization_infos
     @stores = @organization.stores
-    render :template => "homepages/show"
+    render :action => 'show'
   end
 
   def show

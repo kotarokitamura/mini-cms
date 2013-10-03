@@ -6,6 +6,6 @@ class ViewDesignsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     @organization.update_attributes(params[:organization])
-    render :template => 'view_designs/edit'
+    render :action => 'edit'
   end
 end
