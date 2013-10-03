@@ -238,3 +238,5 @@ ja:
     view_design:
       edit_view_design: テンプレート編集
       design_number: デザイン番号
+  action:
+    updated_message: アップデートに成功しました

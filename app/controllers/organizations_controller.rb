@@ -6,9 +6,9 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     if @organization.update_attributes(params[:organization])
-      redirect_to action: 'edit', notice: t('updated_message')
+      render_to :template => 'organizations/edit', notice: t('action.updated_message')
     else
-      redirect_to action: 'edit'
+      render_to :template => 'organizations/edit' 
     end
   end
 end

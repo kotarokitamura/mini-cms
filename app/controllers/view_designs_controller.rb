@@ -6,6 +6,6 @@ class ViewDesignsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     @organization.update_attributes(params[:organization])
-    redirect_to ({:action => 'edit'}), :notice => t('updated_message')
+    render :template => 'view_designs/edit'
   end
 end
