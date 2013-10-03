@@ -7,3 +7,5 @@ organization_max_item: 3
 paginate_limit: 2
 first_name_max_length: 30
 last_name_max_length: 30
+password_minimum_length: 4
+password_maximum_length: 128 

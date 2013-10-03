@@ -5,9 +5,4 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  validate :first_name,
-           :length => {:maximum => ResourceProperty.first_name_max_length}
-  validate :last_name,
-           :length => {:maximum => ResourceProperty.last_name_max_length}
 end
