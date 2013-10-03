@@ -5,7 +5,10 @@ class ViewDesignsController < ApplicationController
 
   def update
     @organization = Organization.find(current_user.organization_id)
-    @organization.update_attributes(params[:organization])
-    render :template => 'view_designs/edit'
+    if @organization.update_attributes(params[:organization])
+      render :action => 'edit', :notice => t('action.updated_message')
+    else
+      render :action => 'edit', :notice => t('action.failed_updated_message')
+    end
   end
 end

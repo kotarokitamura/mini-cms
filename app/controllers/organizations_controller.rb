@@ -6,9 +6,9 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(current_user.organization_id)
     if @organization.update_attributes(params[:organization])
-      render_to :template => 'organizations/edit', notice: t('action.updated_message')
+      render :action => 'edit', notice: t('action.updated_message')
     else
-      render_to :template => 'organizations/edit' 
+      render :action => 'edit', notice: t('action._failed_updated_message')
     end
   end
 end
