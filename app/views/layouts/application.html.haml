@@ -13,6 +13,8 @@
     - if user_signed_in?
       %p
         = t('attributes.devise.logged_in_as')
+        \:
         = current_user.first_name
+        = t('attributes.devise.title')
       = link_to t('attributes.devise.log_out'), destroy_user_session_path, method: :delete
     = yield

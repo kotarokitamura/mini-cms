@@ -235,6 +235,7 @@ ja:
       stop_cofirmation: 確認通知を停止しますか？
       unlock_instruction: アンロック通知を停止しますか？
       remember_me: ログイン情報を記憶
+      title: さん
     view_design:
       edit_view_design: テンプレート編集
       design_number: デザイン番号
