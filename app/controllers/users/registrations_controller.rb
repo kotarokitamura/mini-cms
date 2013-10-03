@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @organization.view_designs.build
     @organization.images.build
     if @organization.save
-      redirect_to @organization
+      redirect_to new_user_session_path
     else
       render action: "new"
     end
