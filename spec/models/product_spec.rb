@@ -1,6 +1,6 @@
 # coding: utf-8
 require 'spec_helper'
-  
+
 describe Product do
   fixtures :products
 
