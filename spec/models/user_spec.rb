@@ -24,7 +24,6 @@ describe User do
       @user.save.should be_true
     end
 
-
     it "should return false when insert password under #{ResourceProperty.password_minimum_length}" do
       password = 'a' * (ResourceProperty.password_minimum_length - 1)
       @user.save.should be_true
@@ -47,7 +46,6 @@ describe User do
       @user.password = @user.password_confirmation = password
       @user.save.should be_true
     end
-
 
     it "should return true when insert correct email" do
       @user.save.should be_true
