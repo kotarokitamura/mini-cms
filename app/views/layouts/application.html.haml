@@ -20,7 +20,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Minicms
+          .brand Minicms
           .container.nav-collapse
             - if user_signed_in?
               %ul.nav
@@ -28,6 +28,7 @@
                 %li= link_to t('attributes.h1.editing_organization_info'), edit_organization_infos_path
                 %li= link_to t('attributes.h1.upload_image'), organizations_image_path
                 %li= link_to t('attributes.h1.editing_view_design'), view_designs_path
+                %li= link_to t('attributes.h1.preview'), organizations_homepage_path
     .container-fluid
       .row-fluid
         .span2

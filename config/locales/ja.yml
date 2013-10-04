@@ -222,6 +222,7 @@ ja:
       logo_image: ロゴ画像
     h1:
       editing_organization: 組織情報編集
+      preview: プレビュー
       editing_organization_info: 組織詳細情報編集
       editing_view_design: デザイン選択
       upload_image: 画像アップロード
@@ -246,4 +247,4 @@ ja:
     updated_message: アップデートに成功しました
     created_message: 登録に成功しました
     failed_update_message: アップデートに失敗しました
-    failed_create_massage: 登録に失敗しました
+    failed_create_message: 登録に失敗しました
