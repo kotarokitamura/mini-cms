@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
     case e
     when InvalidUrlError, ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownAction
       render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
-      logge.info"Rendering 404 with exception: #{e.message}"
+      logger.info("Rendering 404 with exception: #{e.message}")
     else
       render :file => "#{Rails.root}/public/500.html", :status => 500, :layout => false
-      logge.info"Rendering 505 with exception: #{e.message}"
+      logger.info("Rendering 505 with exception: #{e.message}")
     end
   end
 end
