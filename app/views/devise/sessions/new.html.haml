@@ -14,5 +14,5 @@
       = f.check_box :remember_me
       = f.label t('attributes.devise.remember_me')
     %br/
-  %div= f.submit t('attributes.devise.sign_in')
+  %div= f.submit(t('attributes.devise.sign_in'),:class => "btn btn-primary")
 = render "devise/shared/links"

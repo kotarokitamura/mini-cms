@@ -228,6 +228,7 @@ ja:
       user_list: ユーザー一覧
       add_user: ユーザー登録
     devise:
+      remind_your_password: パスワードの再発行
       logged_in_as: ログインユーザー
       log_out: ログアウト 
       sign_up: 登録
@@ -237,6 +238,7 @@ ja:
       unlock_instruction: アンロック通知を停止しますか？
       remember_me: ログイン情報を記憶
       title: さん
+      recreate: 再発行
     view_design:
       edit_view_design: テンプレート編集
       design_number: デザイン番号

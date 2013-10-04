@@ -33,6 +33,14 @@
         .span2
         .span8
           = bootstrap_flash
+          -if user_signed_in?
+            %p{:class => "navbar-text pull-right"}
+              = t('attributes.devise.logged_in_as')
+              \:
+              = current_user.first_name
+              = current_user.last_name
+              %br/
+              = link_to t('attributes.devise.log_out'), destroy_user_session_path, :method => :delete
           = yield
         .span2
       %footer
