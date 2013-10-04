@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     organizations_edit_path
   end
 
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
+
   rescue_from Exception, :with => :handle_exceptions unless Rails.application.config.consider_all_requests_local
 
   private
