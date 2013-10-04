@@ -1,4 +1,5 @@
 class HomepagesController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => [:show]
   def preview
     @organization = Organization.find(current_user.organization_id)
     @organization_infos = @organization.organization_infos
