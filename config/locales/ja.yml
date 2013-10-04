@@ -223,6 +223,7 @@ ja:
     h1:
       editing_organization: 組織情報編集
       editing_organization_info: 組織詳細情報編集
+      editing_view_design: デザイン選択
       upload_image: 画像アップロード
       user_list: ユーザー一覧
       add_user: ユーザー登録
