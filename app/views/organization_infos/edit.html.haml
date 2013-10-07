@@ -1,6 +1,6 @@
 %h1 
   =t('attributes.h1.editing_organization_info') 
-%p#notice= notice
+%p
 = form_for(@organization, :url => {action: 'update'}) do |f|
   - if @organization.errors.any?
     #error_explanation
@@ -36,5 +36,5 @@
       %br/
   .actions
     %br/
-    = f.submit
+    = f.submit(:class => "btn btn-primary")
 %br/

@@ -1,5 +1,5 @@
 %h1
-  = t('attributes.view_design.edit_view_desin')
+  = t('attributes.h1.editing_view_design')
 %p#notice= notice
 = form_for(@organization, :url => :view_designs) do |f|
   - if @organization.errors.any?
@@ -19,6 +19,8 @@
       1
     = view.radio_button :design_number,0,{}
     %br/
+    %br/
+    %br/
     %p
       = t('attributes.view_design.design_number')
       2
@@ -26,4 +28,4 @@
   %br/
   .actions
     %br/
-    = f.submit
+    = f.submit(:class => "btn btn-primary")

@@ -1,20 +1,57 @@
-!!!
-%html
+!!! 5
+%html(lang="en")
   %head
-    %title Minicms
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Minicms"
     = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
   %body
-    %p{:class => "notice"}
-      = notice
-    %p{:class => "alert"}
-      = alert
-    - if user_signed_in?
-      %p
-        = t('attributes.devise.logged_in_as')
-        \:
-        = current_user.first_name
-        = t('attributes.devise.title')
-      = link_to t('attributes.devise.log_out'), destroy_user_session_path, method: :delete
-    = yield
+    .navbar.navbar-fluid-top
+      .navbar-inner
+        .container-fluid
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          .brand Minicms
+          .container.nav-collapse
+            - if user_signed_in?
+              %ul.nav
+                %li= link_to t('attributes.h1.editing_organization'), organizations_edit_path
+                %li= link_to t('attributes.h1.editing_organization_info'), edit_organization_infos_path
+                %li= link_to t('attributes.h1.upload_image'), organizations_image_path
+                %li= link_to t('attributes.h1.editing_view_design'), view_designs_path
+                %li= link_to t('attributes.h1.preview'), organizations_homepage_path
+            -else
+              %ul.nav
+                %li= link_to t('attributes.h1.add_user'), new_user_registration_path
+                %li= link_to t('attributes.devise.sign_in'), new_user_session_path
+                %li= link_to t('attributes.devise.remind_your_password'), new_user_password_path
+    .container-fluid
+      .row-fluid
+        .span2
+        .span8
+          = bootstrap_flash
+          -if user_signed_in?
+            %p{:class => "pull-right"}
+              = t('attributes.devise.logged_in_as')
+              \:
+              = current_user.first_name
+              = current_user.last_name
+              %br/
+              = link_to t('attributes.devise.log_out'), destroy_user_session_path, :method => :delete
+          = yield
+        .span2
+      %footer
+        .span2
+        .span8
+          %div{:align => "right"}
+            %p &copy; Social Groupware Co., Ltd.
+        .span2

@@ -222,11 +222,14 @@ ja:
       logo_image: ロゴ画像
     h1:
       editing_organization: 組織情報編集
+      preview: プレビュー
       editing_organization_info: 組織詳細情報編集
+      editing_view_design: デザイン選択
       upload_image: 画像アップロード
       user_list: ユーザー一覧
       add_user: ユーザー登録
     devise:
+      remind_your_password: パスワードの再発行
       logged_in_as: ログインユーザー
       log_out: ログアウト 
       sign_up: 登録
@@ -236,6 +239,7 @@ ja:
       unlock_instruction: アンロック通知を停止しますか？
       remember_me: ログイン情報を記憶
       title: さん
+      recreate: 再発行
     view_design:
       edit_view_design: テンプレート編集
       design_number: デザイン番号
@@ -243,4 +247,4 @@ ja:
     updated_message: アップデートに成功しました
     created_message: 登録に成功しました
     failed_update_message: アップデートに失敗しました
-    failed_create_massage: 登録に失敗しました
+    failed_create_message: 登録に失敗しました
