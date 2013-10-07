@@ -18,7 +18,7 @@ module Subdomain
     end
 
     def get_organization_id(organization_code)
-      Organization.find_by_organization_code(organization_code).id
+      Organization.exists?(:organization_code => organization_code) ? Organization.find_by_organization_code(organization_code).id : nil
     end
 
     def url_valid?(url)
