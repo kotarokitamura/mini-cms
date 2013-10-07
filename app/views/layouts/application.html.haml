@@ -29,6 +29,11 @@
                 %li= link_to t('attributes.h1.upload_image'), organizations_image_path
                 %li= link_to t('attributes.h1.editing_view_design'), view_designs_path
                 %li= link_to t('attributes.h1.preview'), organizations_homepage_path
+            -else
+              %ul.nav
+                %li= link_to t('attributes.h1.add_user'), new_user_registration_path
+                %li= link_to t('attributes.devise.sign_in'), new_user_session_path
+                %li= link_to t('attributes.devise.remind_your_password'), new_user_password_path
     .container-fluid
       .row-fluid
         .span2
