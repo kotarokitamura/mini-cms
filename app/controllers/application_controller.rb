@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   layout :set_layout
   before_filter :authenticate_user!, :set_iphone_format
 
-  def set_layout
-    iphone_reqest? ? "iphone" : "application"
+  def set_iphone_format
+    request.format = :iphone if iphone_request?
   end
 
-  def set_iphone_format
-    request.format = iphone_request?
+  def set_layout
+    iphone_request? ? "iphone" : "application"
   end
 
   def after_sign_in_path_for(resource)
