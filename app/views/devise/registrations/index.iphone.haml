@@ -1,0 +1,10 @@
+%h1
+  = t('attributes.h1.user_list')
+- @users.each do |user|
+  %p
+    = t('attributes.user.user_name')
+    = user.first_name
+    = user.last_name
+
+%a{:href => "/organizations/users/new", 'data-role' => "button", 'data-mini' => "true"}
+  add user

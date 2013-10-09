@@ -16,10 +16,26 @@
   %body
     %div{'data-role' => "page", :id => "home"}
       %div{'data-role' => "header"}
+        %a{:href => "/organizations/users", 'data-icon' => "gear"}
+          = t('iphone.settings')
         %h1
-          Mini-cms
+          = t('iphone.mini-cms')
+        %a{:href => "/organizations/homepage", 'data-icon' => "check"}
+          = t('iphone.preview')
       %div{'data-role' => "content"}
         =yield
-      %div{'data-role' => "footer"}
-        %p
-          (C)Social Groupware Co.Ltd. All rights reserved.
+      %div{'data-role' => "footer", 'data-position' => "fixed"}
+        %div{'data-role' => "navbar"}
+          %ul
+            %li
+              %a{:href => "/organizations"}
+                = t('iphone.organization')
+            %li
+              %a{:href => "/organizations/organization_infos" }
+                = t('iphone.organization_info')
+            %li
+              %a{:href => "/organizations/image" }
+                = t('iphone.image')
+            %li
+              %a{:href => "/organizations/view_design" }
+                = t('iphone.design')
