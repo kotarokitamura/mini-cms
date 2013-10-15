@@ -51,4 +51,8 @@ for i in [1,2,3] do
   FileUtils.mkdir_p("./public/system/images/logos/000/000/00#{i}/thumb")
   FileUtils.mkdir_p("./public/system/images/logos/000/000/00#{i}/original")
   FileUtils.mkdir_p("./public/system/images/logos/000/000/00#{i}/medium")
+
+  FileUtils.copy("./db/seed_image/rails.png","./public/system/images/logos/000/000/00#{i}/thumb/")
+  FileUtils.copy("./db/seed_image/rails.png","./public/system/images/logos/000/000/00#{i}/original/")
+  FileUtils.copy("./db/seed_image/rails.png","./public/system/images/logos/000/000/00#{i}/medium/")
 end
