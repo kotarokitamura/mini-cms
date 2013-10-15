@@ -1,6 +1,15 @@
-■hostsの設定
+■localで開発・確認
+□hostsの設定
 ---
-127.0.0.1 kitasang.com↲
-127.0.0.1 sgw.kitasang.com↲
+127.0.0.1 kitasang.com
+127.0.0.1 sgw.kitasang.com
 ---
 localhostのURLをkitasang.comに変更
+
+□生成されたホームページにアクセスする場合(local)
+サブドメイン(organization_code).kitasang.com:3000
+seed データでは
+---
+sgw.kitasang.com:3000
+---
+にてアクセスが可能。
