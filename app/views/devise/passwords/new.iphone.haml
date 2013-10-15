@@ -6,5 +6,5 @@
     = f.label t('attributes.user.email') 
     %br/
     = f.email_field :email, :autofocus => true
-  %div= f.submit t('attributes.devise.recreate'
+  %div= f.submit(t('attributes.devise.recreate'),:class => "btn btn-primary") 
 = render "devise/shared/links"

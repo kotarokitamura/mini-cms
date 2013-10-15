@@ -1,5 +1,3 @@
-%h1
-  = t('attributes.h1.editing_organization')
 = form_for(@organization, :url => {action: 'update'}) do |f|
   - if @organization.errors.any?
     #error_explanation
@@ -18,4 +16,4 @@
     %br/
     = f.text_field :organization_code
   .actions
-    = f.submit(:class => "btn btn-primary")
+    = f.submit

@@ -1,0 +1,32 @@
+%h1
+  = t('attributes.h1.add_user')
+= form_for(@user, :url => {:action => 'create_next_new_user'}) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@organization.errors.count, "error")
+        prohibited this organization from being saved:
+      %ul
+        - @organization.errors.full_messages.each do |msg|
+          %li
+            = msg
+  .field
+  %div
+    = f.label t('attributes.user.first_name')
+    = f.text_field :first_name
+  %div
+    = f.label t('attributes.user.last_name')
+    = f.text_field :last_name
+  %div
+    = f.label t('attributes.user.email')
+    = f.email_field :email
+  %div
+    = f.label t('attributes.user.password')
+    = f.password_field :password
+  %div
+    = f.label t('attributes.user.password_confirmation')
+    = f.password_field :password_confirmation
+  %div
+  = f.submit
+  .actions
+%br/

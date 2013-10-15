@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user!
+  layout :set_layout
+  before_filter :authenticate_user!, :set_iphone_format
+
+  def set_iphone_format
+    request.format = :iphone if iphone_request?
+  end
+
+  def set_layout
+    iphone_request? ? "iphone" : "application"
+  end
 
   def after_sign_in_path_for(resource)
     organizations_edit_path
@@ -14,6 +23,10 @@ class ApplicationController < ActionController::Base
   rescue_from Exception, :with => :handle_exceptions unless Rails.application.config.consider_all_requests_local
 
   private
+  def iphone_request?
+    request.user_agent =~ /(Mobile.+Safari)/
+  end
+
   def handle_exceptions(e)
     case e
     when InvalidUrlError, ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownAction
