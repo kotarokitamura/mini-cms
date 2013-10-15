@@ -41,3 +41,9 @@ ViewDesign.create(:organization_id => 3, :design_number => 2)
 User.create(:id => 1, :email => 'test@example.com', :password => 'password', :organization_id => 1, :first_name => 'Kotaro', :last_name => 'Kitamura')
 User.create(:id => 2, :email => 'test1@example.com', :password => 'password', :organization_id => 2, :first_name => 'Taro', :last_name => 'Sato')
 User.create(:id => 3, :email => 'test2@example.com', :password => 'password', :organization_id => 3, :first_name => 'Satoshi', :last_name => 'Tanaka')
+
+
+
+Image.create(:id => 1, :organization_id => 1, :logo_file_name =>'rails.png')
+Image.create(:id => 2, :organization_id => 2, :logo_file_name =>'rails.png')
+Image.create(:id => 3, :organization_id => 3, :logo_file_name =>'rails.png')
