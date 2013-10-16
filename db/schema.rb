@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(:version => 20131016073451) do
   end
 
   create_table "members", :force => true do |t|
-    t.integer  "organization_id_id"
-    t.integer  "user_id_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "members", ["organization_id_id"], :name => "index_members_on_organization_id_id"
-  add_index "members", ["user_id_id"], :name => "index_members_on_user_id_id"
+  add_index "members", ["organization_id"], :name => "index_members_on_organization_id"
+  add_index "members", ["user_id"], :name => "index_members_on_user_id"
 
   create_table "organization_infos", :force => true do |t|
     t.integer  "organization_id"
