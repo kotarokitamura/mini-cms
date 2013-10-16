@@ -1,8 +1,11 @@
 %h1
   = t('attributes.h1.user_list')
-- @users.each do |user|
+- @members.each do |member|
   %p
     = t('attributes.user.user_name')
-    = user.first_name
-    = user.last_name
+    = member.user.first_name
+    = member.user.last_name
+  %p
+    = member.user.email
+    %br
     %br
