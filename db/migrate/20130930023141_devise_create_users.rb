@@ -22,7 +22,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       #Added by Kotaro kitamura
       t.string :first_name
       t.string :last_name
-      t.belongs_to :organization
 
       ## Confirmable
       # t.string   :confirmation_token
