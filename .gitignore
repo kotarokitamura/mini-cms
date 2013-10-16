@@ -25,3 +25,5 @@ tmp/*
 .DS_Store
 .config.swo
 /public/system
+config/database.yml
+Gemfile.lock
