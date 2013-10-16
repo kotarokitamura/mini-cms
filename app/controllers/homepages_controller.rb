@@ -1,7 +1,7 @@
 class HomepagesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:show]
   def preview
-    @organization = Organization.find(current_user.organization_id)
+    @organization = Organization.find(current_user.members.first.organization_id)
     render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.haml", :layout => false
   end
 
