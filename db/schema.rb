@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131016052344) do
+ActiveRecord::Schema.define(:version => 20131016073451) do
 
   create_table "images", :force => true do |t|
     t.datetime "created_at",        :null => false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20131016052344) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
   end
+
+  create_table "members", :force => true do |t|
+    t.integer  "organization_id_id"
+    t.integer  "user_id_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "members", ["organization_id_id"], :name => "index_members_on_organization_id_id"
+  add_index "members", ["user_id_id"], :name => "index_members_on_user_id_id"
 
   create_table "organization_infos", :force => true do |t|
     t.integer  "organization_id"
@@ -40,14 +50,6 @@ ActiveRecord::Schema.define(:version => 20131016052344) do
   end
 
   add_index "organizations", ["organization_code"], :name => "index_organizations_on_organization_code", :unique => true
-
-  create_table "organizations_users", :id => false, :force => true do |t|
-    t.integer "organization_id"
-    t.integer "user_id"
-  end
-
-  add_index "organizations_users", ["organization_id"], :name => "index_organizations_users_on_organization_id"
-  add_index "organizations_users", ["user_id"], :name => "index_organizations_users_on_user_id"
 
   create_table "products", :force => true do |t|
     t.integer  "organization_id"

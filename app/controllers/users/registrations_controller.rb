@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def index
-    @users = User.find_all_by_organization_id(current_user.organization_id)
+    @users = Organization.find_all(current_user.organization.id)
   end
 
   def new
