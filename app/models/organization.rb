@@ -19,7 +19,8 @@ class Organization < ActiveRecord::Base
   has_many :view_designs
   has_many :products
   has_many :images
-  has_many :users
+  has_many :organizations_users
+  has_many :users, :through => :organizatoin_users
 
   accepts_nested_attributes_for :stores,
                                 :organization_infos,
