@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   layout :set_layout
   before_filter :authenticate_user!, :set_iphone_format
 
+  def get_organization_id_by_current_user
+    current_user.members.first.organization_id
+  end
+
   def set_iphone_format
     request.format = :iphone if iphone_request?
   end

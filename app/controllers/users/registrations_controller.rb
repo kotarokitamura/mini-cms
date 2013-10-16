@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def index
-    @users = User.find_all_by_organization_id(current_user.organization_id)
+    @members = Member.find(:all, :conditions => {:organization_id => get_organization_id_by_current_user})
   end
 
   def new
@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_next_new_user
     @user = User.new(params[:user])
-    @user.organization_id = current_user.organization_id 
+    @user.members.build(:organization_id => get_organization_id_by_current_user) 
     if @user.save
       flash[:notice] = t('action.created_message')
       redirect_to :action => 'index'
