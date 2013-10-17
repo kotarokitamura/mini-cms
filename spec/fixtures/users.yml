@@ -1,6 +1,5 @@
 user1:
   id: 1
-  organization_id: 1
   email: 'hoge1@example.com'
   encrypted_password: 'password'
   first_name: 'Tana'
@@ -8,7 +7,6 @@ user1:
 
 user2:
   id: 2 
-  organization_id: 1
   email: 'hoge2@example.com'
   encrypted_password: 'password'
   first_name: 'Shiba'
@@ -16,7 +14,6 @@ user2:
 
 user3:
   id: 3 
-  organization_id: 1
   email: 'hoge3@example.com'
   encrypted_password: 'password'
   first_name: 'Dore'
