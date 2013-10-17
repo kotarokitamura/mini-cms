@@ -39,9 +39,13 @@ ViewDesign.create(:organization_id => 2, :design_number => 1)
 ViewDesign.create(:organization_id => 3, :design_number => 2)
 
 
-User.create(:id => 1, :email => 'test@example.com', :password => 'password', :organization_id => 1, :first_name => 'Kotaro', :last_name => 'Kitamura')
-User.create(:id => 2, :email => 'test1@example.com', :password => 'password', :organization_id => 2, :first_name => 'Taro', :last_name => 'Sato')
-User.create(:id => 3, :email => 'test2@example.com', :password => 'password', :organization_id => 3, :first_name => 'Satoshi', :last_name => 'Tanaka')
+User.create(:id => 1, :email => 'test@example.com', :password => 'password', :first_name => 'Kotaro', :last_name => 'Kitamura')
+User.create(:id => 2, :email => 'test1@example.com', :password => 'password', :first_name => 'Taro', :last_name => 'Sato')
+User.create(:id => 3, :email => 'test2@example.com', :password => 'password', :first_name => 'Satoshi', :last_name => 'Tanaka')
+
+Member.create(:id => 1, :organization_id => 1, :user_id => 1)
+Member.create(:id => 1, :organization_id => 1, :user_id => 2)
+Member.create(:id => 1, :organization_id => 2, :user_id => 3)
 
 Image.create(:id => 1, :organization_id => 1, :logo_file_name => 'rails.png')
 Image.create(:id => 2, :organization_id => 2, :logo_file_name => 'rails.png')
