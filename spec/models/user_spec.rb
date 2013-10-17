@@ -5,7 +5,7 @@ describe User do
 
   fixtures :organizations, :users
   before do
-    @user = User.new(:organization_id => 1, :email => 'hoge@example.com', :password => 'password', :password_confirmation => 'password')
+    @user = User.new(:email => 'hoge@example.com', :password => 'password', :password_confirmation => 'password')
   end
 
   context 'with some situation in user' do
