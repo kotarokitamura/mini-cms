@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    organizations_edit_path
+    organizations_edit_path(get_organization_id_by_current_user)
   end
 
   def after_sign_out_path_for(resource)
