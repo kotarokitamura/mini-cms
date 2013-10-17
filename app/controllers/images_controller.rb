@@ -1,10 +1,10 @@
 class ImagesController < ApplicationController
   def edit
-    @organization = Organization.find(get_organization_id_by_current_user)
+    @organization = Organization.find(params[:id])
   end
 
   def update
-    @organization = Organization.find(get_organization_id_by_current_user)
+    @organization = Organization.find(params[:id])
     if @organization.update_attributes(params[:organization])
       render :action => 'edit', :notice => t('action.updated_message')
     else
