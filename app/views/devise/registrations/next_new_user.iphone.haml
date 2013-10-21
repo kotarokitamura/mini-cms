@@ -27,6 +27,11 @@
     = f.label t('attributes.user.password_confirmation')
     = f.password_field :password_confirmation
   %div
+    = f.label t('attributes.user.admin_flag_on')
+    = f.check_box('admin_flag',{:checked => false},ResourceProperty.admin_flag_on,ResourceProperty.admin_flag_off)
+  %br
+  %br
+  %div
   = f.submit
   .actions
 %br/

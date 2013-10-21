@@ -29,7 +29,7 @@
   %br
   %div
     = f.label t('attributes.user.admin_flag_on')
-    = f.check_box('admin_flag',{:checked => false},1,0)
+    = f.check_box('admin_flag',{:checked => false},ResourceProperty.admin_flag_on,ResourceProperty.admin_flag_off)
   %br
   %br
   %div
