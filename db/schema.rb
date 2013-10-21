@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20131016073451) do
     t.string   "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "admin_flag",             :default => 0
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
