@@ -42,6 +42,4 @@ class Organization < ActiveRecord::Base
   validates :organization_name,
             :length => {:maximum => ResourceProperty.organization_name_max_length}
 
-  default_scope :order => 'created_at DESC'
-  paginates_per ResourceProperty.paginate_limit
 end
