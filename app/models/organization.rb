@@ -33,10 +33,10 @@ class Organization < ActiveRecord::Base
             :length => {:maximum => ResourceProperty.organization_code_max_length},
             :presence => true
 
-  validates_uniqueness_of :organization_code, 
-                          :case_sensitive => false 
+  validates_uniqueness_of :organization_code,
+                          :case_sensitive => false
 
-  validates_format_of :organization_code, 
+  validates_format_of :organization_code,
                       :with => /\A[a-z0-9]+\z/
 
   validates :organization_name,
@@ -60,5 +60,9 @@ class Organization < ActiveRecord::Base
 
   def change_admin_flag_on
     self.users.first.admin_flag = ResourceProperty.admin_flag_on
+  end
+
+  def access_filter?(current_user)
+    self.members.map(&:user_id).include?(current_user.id)
   end
 end

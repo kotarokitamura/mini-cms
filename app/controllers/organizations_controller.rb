@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
   def edit
     @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user)
   end
 
   def update
