@@ -1,10 +1,12 @@
 class ImagesController < ApplicationController
   def edit
     @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user)
   end
 
   def update
     @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user)
     if @organization.update_attributes(params[:organization])
       render :action => 'edit', :notice => t('action.updated_message')
     else
