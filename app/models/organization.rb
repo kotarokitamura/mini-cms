@@ -43,12 +43,12 @@ class Organization < ActiveRecord::Base
             :length => {:maximum => ResourceProperty.organization_name_max_length}
 
   def first_create
-    building_relationships
+    build_relationships
     change_admin_flag_on
     self.save
   end
 
-  def building_relationships
+  def build_relationships
     ResourceProperty.organization_max_item.times{
       self.stores.build
       self.products.build

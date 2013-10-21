@@ -8,10 +8,20 @@ describe Organization do
     @organization = Organization.new
   end
 
-  context 'with using pagination' do
-    it "should get #{ResourceProperty.paginate_limit} organizations" do
-      @organizations = Organization.page
-      @organizations.count == ResourceProperty.paginate_limit
+  context 'create first time' do
+    it "should change admin flag on" do
+      @organization.users.build
+      @organization.change_admin_flag_on
+      @organization.users.first.admin_flag == ResourceProperty.admin_flag_on
+    end
+
+    it "should build relationship model when create" do
+      @organization.build_relationships
+      @organization.stores.first.id.should be_nil
+      @organization.organization_infos.first.id.should be_nil
+      @organization.stores.first.id.should be_nil
+      @organization.view_designs.first.id.should be_nil
+      @organization.images.first.id.should be_nil
     end
   end
 
