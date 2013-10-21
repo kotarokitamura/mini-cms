@@ -10,14 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @organization = Organization.new(params[:organization])
-    ResourceProperty.organization_max_item.times{
-      @organization.stores.build
-      @organization.products.build
-      @organization.organization_infos.build
-    }
-    @organization.view_designs.build
-    @organization.images.build
-    if @organization.save
+    if @organization.first_create
       redirect_to new_user_session_path
     else
       flash[:notice] = t('action.failed_create_message')

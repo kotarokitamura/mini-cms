@@ -42,4 +42,23 @@ class Organization < ActiveRecord::Base
   validates :organization_name,
             :length => {:maximum => ResourceProperty.organization_name_max_length}
 
+  def first_create
+    building_relationships
+    change_admin_flag_on
+    self.save
+  end
+
+  def building_relationships
+    ResourceProperty.organization_max_item.times{
+      self.stores.build
+      self.products.build
+      self.organization_infos.build
+    }
+    self.view_designs.build
+    self.images.build
+  end
+
+  def change_admin_flag_on
+    self.users.first.admin_flag = ResourceProperty.admin_flag_on
+  end
 end
