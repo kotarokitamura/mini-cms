@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                   :remember_me,
                   :first_name,
                   :last_name,
+                  :admin_flag,
                   :organizations_users,
                   :organizations_users_attributes,
                   :organizations,

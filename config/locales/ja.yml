@@ -208,6 +208,7 @@ ja:
       email: メールアドレス
       password: パスワード
       password_confirmation: パスワード(確認)
+      admin_flag_on: 管理者権限 
     organization:
       organization_name: 組織名
       organization_code: 組織コード

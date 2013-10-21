@@ -26,6 +26,12 @@
   %div
     = f.label t('attributes.user.password_confirmation')
     = f.password_field :password_confirmation
+  %br
+  %div
+    = f.label t('attributes.user.admin_flag_on')
+    = f.check_box('admin_flag',{:checked => false},1,0)
+  %br
+  %br
   %div
   = f.submit
   .actions
