@@ -62,6 +62,10 @@ class Organization < ActiveRecord::Base
     self.users.first.admin_flag = ResourceProperty.admin_flag_on
   end
 
+  def self.access_filter?(id,current_user)
+    current_user.members.map(&:organization_id).include?(id.to_i)
+  end
+
   def access_filter?(current_user)
     self.members.map(&:user_id).include?(current_user.id)
   end
