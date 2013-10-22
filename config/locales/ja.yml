@@ -229,6 +229,7 @@ ja:
       upload_image: 画像アップロード
       user_list: ユーザー一覧
       add_user: ユーザー登録
+      user_settings: ユーザー設定
     devise:
       remind_your_password: パスワードの再発行
       logged_in_as: ログインユーザー
