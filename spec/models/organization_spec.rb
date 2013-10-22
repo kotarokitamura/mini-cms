@@ -1,4 +1,4 @@
-# coding: utf-8
+# coding: utf-8 
 require 'spec_helper'
 
 describe Organization do
@@ -9,16 +9,29 @@ describe Organization do
   end
 
   context 'Access some user pettern' do
+    PARAMS_ID = 1
+    USER_ID_ORGANIZATION_1 = 1
+    USER_ID_ORGANIZATION_3 = 3
     it "should be false when access other organization id with instance" do
+      current_user = User.find(USER_ID_ORGANIZATION_3)
+      @organization = Organization.find(PARAMS_ID)
+      @organization.access_filter?(current_user).should be_false
     end
 
     it "should be true when access crrecct organization id with instance" do
+      current_user = User.find(USER_ID_ORGANIZATION_1)
+      @organization = Organization.find(PARAMS_ID)
+      @organization.access_filter?(current_user).should be_true
     end
 
     it "should be false when access other organization id without instance" do
+      current_user = User.find(USER_ID_ORGANIZATION_3)
+      Organization.access_filter?(PARAMS_ID,current_user).should be_false
     end
 
     it "should be true when access crrecct organization id without instance" do
+      current_user = User.find(USER_ID_ORGANIZATION_1)
+      Organization.access_filter?(PARAMS_ID,current_user).should be_true
     end
   end
 
