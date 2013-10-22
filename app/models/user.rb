@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
                   :remember_me,
                   :first_name,
                   :last_name,
+                  :admin_flag,
                   :organizations_users,
                   :organizations_users_attributes,
                   :organizations,
@@ -18,4 +19,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def self.admin_user?(current_user)
+    current_user.admin_flag == ResourceProperty.admin_flag_on
+  end
 end

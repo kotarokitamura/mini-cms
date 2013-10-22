@@ -4,6 +4,7 @@ user1:
   encrypted_password: 'password'
   first_name: 'Tana'
   last_name: 'Taro'
+  admin_flag: 1
 
 user2:
   id: 2 
@@ -11,10 +12,14 @@ user2:
   encrypted_password: 'password'
   first_name: 'Shiba'
   last_name: 'Mito'
+  admin_flag: 1
+
 
 user3:
-  id: 3 
+  id: 3
   email: 'hoge3@example.com'
   encrypted_password: 'password'
   first_name: 'Dore'
   last_name: 'Michi'
+  admin_flag: 0
+

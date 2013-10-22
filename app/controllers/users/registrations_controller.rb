@@ -1,6 +1,25 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def index
-    @members = Member.find(:all, :conditions => {:organization_id => params[:id]})
+    @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user) && User.admin_user?(current_user)
+  end
+
+  def next_new_user
+    @user = User.new
+    raise ForbiddenError unless Organization.access_filter?(params[:id],current_user) && User.admin_user?(current_user)
+  end
+
+  def create_next_new_user
+    @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user) && User.admin_user?(current_user)
+    @organization.users.build(params[:user])
+    if @organization.save
+      flash[:notice] = t('action.created_message')
+      redirect_to :action => 'index'
+    else
+      flash[:notice] = t('action.failed_create_message')
+      redirect_to :action => 'next_new_user'
+    end
   end
 
   def new
@@ -10,34 +29,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @organization = Organization.new(params[:organization])
-    ResourceProperty.organization_max_item.times{
-      @organization.stores.build
-      @organization.products.build
-      @organization.organization_infos.build
-    }
-    @organization.view_designs.build
-    @organization.images.build
-    if @organization.save
+    if @organization.first_create
       redirect_to new_user_session_path
     else
       flash[:notice] = t('action.failed_create_message')
       render action: 'new'
-    end
-  end
-
-  def next_new_user
-    @user = User.new
-  end
-
-  def create_next_new_user
-    @user = User.new(params[:user])
-    @user.members.build(:organization_id => params[:id]) 
-    if @user.save
-      flash[:notice] = t('action.created_message')
-      redirect_to :action => 'index'
-    else
-      flash[:notice] = t('action.failed_create_message')
-      redirect_to :action => 'next_new_user'
     end
   end
 end

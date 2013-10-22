@@ -2,6 +2,7 @@ class HomepagesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:show]
   def preview
     @organization = Organization.find(params[:id])
+    raise ForbiddenError unless @organization.access_filter?(current_user)
     render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.haml", :layout => false
   end
 
