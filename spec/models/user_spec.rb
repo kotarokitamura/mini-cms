@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe User do
 
-  fixtures :organizations, :users
+  fixtures :organizations, :users, :members
   before do
     @user = User.new(:email => 'hoge@example.com', :password => 'password', :password_confirmation => 'password')
   end
