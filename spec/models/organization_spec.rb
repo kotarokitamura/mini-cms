@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Organization do
-  fixtures :organizations
+  fixtures :organizations, :members, :users
 
   before do 
     @organization = Organization.new
