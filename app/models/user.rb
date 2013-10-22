@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def self.admin_user?(current_user)
+    current_user.admin_flag == ResourceProperty.admin_flag_on
+  end
 end
