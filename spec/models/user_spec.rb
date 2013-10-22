@@ -8,6 +8,20 @@ describe User do
     @user = User.new(:email => 'hoge@example.com', :password => 'password', :password_confirmation => 'password')
   end
 
+  context 'with admin user and not admin user' do
+    USER_ID_ADMIN_USER = 1
+    USER_ID_NOT_ADMIN_USER = 3
+    it "should be return true when Access admin user" do
+      current_user = User.find(USER_ID_ADMIN_USER)
+      User.admin_user?(current_user).should be_true
+    end
+
+    it "should be false true when Access not admin user" do
+      current_user = User.find(USER_ID_NOT_ADMIN_USER)
+      User.admin_user?(current_user).should be_false
+    end
+  end
+
   context 'with some situation in user' do
     it "should return false when insert unmatch password with password_confirmation" do
       @user.password = 'hoge'
