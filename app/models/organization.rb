@@ -67,6 +67,7 @@ class Organization < ActiveRecord::Base
   end
 
   def access_filter?(current_user)
+    p current_user
     self.members.map(&:user_id).include?(current_user.id)
   end
 end

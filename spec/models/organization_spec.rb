@@ -8,6 +8,20 @@ describe Organization do
     @organization = Organization.new
   end
 
+  context 'Access some user pettern' do
+    it "should be false when access other organization id with instance" do
+    end
+
+    it "should be true when access crrecct organization id with instance" do
+    end
+
+    it "should be false when access other organization id without instance" do
+    end
+
+    it "should be true when access crrecct organization id without instance" do
+    end
+  end
+
   context 'create first time' do
     it "should change admin flag on" do
       @organization.users.build
