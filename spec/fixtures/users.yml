@@ -16,7 +16,7 @@ user2:
 
 
 user3:
-  id: 3 
+  id: 3
   email: 'hoge3@example.com'
   encrypted_password: 'password'
   first_name: 'Dore'
