@@ -28,9 +28,7 @@
         %div{'data-role' => "navbar"}
           %ul
             %li= link_to t('iphone.organization'), edit_organization_path
-            %li
-              %a{:href => "/organizations/organization_infos" }
-                = t('iphone.organization_info')
+            %li= link_to t('iphone.organization_info'), edit_organization_infos_organization_path
             %li
               %a{:href => "/organizations/image" }
                 = t('iphone.image')
