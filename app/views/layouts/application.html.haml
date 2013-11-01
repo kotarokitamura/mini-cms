@@ -24,7 +24,7 @@
           .container.nav-collapse
             - if user_signed_in?
               %ul.nav
-                %li= link_to t('attributes.h1.editing_organization'), organizations_edit_path
+                %li= link_to t('attributes.h1.editing_organization'), edit_organization_path
                 %li= link_to t('attributes.h1.editing_organization_info'), edit_organization_infos_path
                 %li= link_to t('attributes.h1.upload_image'), organization_image_path
                 %li= link_to t('attributes.h1.editing_view_design'), view_designs_path

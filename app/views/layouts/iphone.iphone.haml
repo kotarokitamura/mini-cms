@@ -27,9 +27,7 @@
       %div{'data-role' => "footer", 'data-position' => "fixed"}
         %div{'data-role' => "navbar"}
           %ul
-            %li
-              %a{:href => "/organizations"}
-                = t('iphone.organization')
+            %li= link_to t('iphone.organization'), edit_organization_path
             %li
               %a{:href => "/organizations/organization_infos" }
                 = t('iphone.organization_info')
