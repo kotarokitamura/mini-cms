@@ -1,21 +1,21 @@
 Minicms::Application.routes.draw do
 
   devise_for :users, :controllers => {
-  :registrations => 'users/registrations'
+    :registrations => 'users/registrations'
   }
 
-  devise_scope :user do 
+  devise_scope :user do
     match "organizations/:id/users/new", :via => :get, :to => "users/registrations#next_new_user"
     match "organizations/:id/users/new", :via => :post, :to => "users/registrations#create_next_new_user", :as => "create_next_new_user"
     match "organizations/:id/users", :via => :get, :to => "users/registrations#index", :as => "users"
   end
 
-  resources :organizations, :only => [:edit, :update]
-  #match "organizations/:id", :via => :get, :to => "organizations#edit", :as => "organizations_edit"
-  #match "organizations/:id", :via => :put, :to => "organizations#update", :as => "organizations_update"
+  resources :organizations, :only => [:edit, :update] do
+    resources :organization_infos, :only => [:edit, :update]
+    #match "organizations/:id/organization_infos", :via => :get, :to => "organization_infos#edit", :as => "edit_organization_infos"
+    #match "organizations/:id/organization_infos", :via => :put, :to => "organization_infos#update", :as => "organization_infos"
+  end
 
-  match "organizations/:id/organization_infos", :via => :get, :to => "organization_infos#edit", :as => "edit_organization_infos"
-  match "organizations/:id/organization_infos", :via => :put, :to => "organization_infos#update", :as => "organization_infos"
 
   match "organizations/:id/homepage", :via => :get, :to => "homepages#preview", :as => "organizations_homepage"
 
