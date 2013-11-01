@@ -20,7 +20,7 @@
           = t('iphone.settings')
         %h1
           = t('iphone.mini-cms')
-        %a{:href => "/organizations/homepage", 'data-icon' => "check"}
+        %a{:href => "#{preview_organization_path}"}
           = t('iphone.preview')
       %div{'data-role' => "content"}
         =yield

@@ -20,6 +20,11 @@ class OrganizationsController < ApplicationController
     render :template => "organization_infos/edit"
   end
 
+  def preview
+    find_organization
+    render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.haml", :layout => false
+  end
+
 private
   def find_organization
     @organization = Organization.find(params[:id])
