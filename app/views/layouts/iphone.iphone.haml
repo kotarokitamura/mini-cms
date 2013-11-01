@@ -32,6 +32,4 @@
             %li
               %a{:href => "/organizations/image" }
                 = t('iphone.image')
-            %li
-              %a{:href => "/organizations/view_design" }
-                = t('iphone.design')
+            %li= link_to t('iphone.design'), edit_view_designs_organization_path
