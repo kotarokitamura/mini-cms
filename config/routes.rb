@@ -10,18 +10,17 @@ Minicms::Application.routes.draw do
     match "organizations/:id/users", :via => :get, :to => "users/registrations#index", :as => "users"
   end
 
-  resources :organizations, :only => [:edit, :update, :edit_organization_infos, :preview, :edit_view_designs, :update_view_designs] do
+  resources :organizations, :only => [:edit, :update, :edit_organization_infos, :preview, :edit_view_designs, :update_view_designs, :edit_images, :update_images] do
     member do
       get :edit_organization_infos
       put :update_organization_infos
       get :preview
       get :edit_view_designs
       put :update_view_designs
+      get :edit_images
+      put :update_images
     end
   end
-
-  match "organizations/:id/image", :via => :get, :to => "images#edit", :as => "organization_image"
-  match "organizations/:id/image", :via => :put, :to => "images#update", :as => "images"
 
   root :to => "homepages#show"
 end

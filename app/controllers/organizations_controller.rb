@@ -36,6 +36,17 @@ class OrganizationsController < ApplicationController
     render :template => "homepages/show#{@organization.view_designs.first.design_number}.html.haml", :layout => false
   end
 
+  def edit_images
+    find_organization
+    render :template => "images/edit"
+  end
+
+  def update_images
+    find_organization
+    update_organization
+    render :template => "images/edit"
+  end
+
 private
   def find_organization
     @organization = Organization.find(params[:id])

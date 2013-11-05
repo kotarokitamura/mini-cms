@@ -26,7 +26,7 @@
               %ul.nav
                 %li= link_to t('attributes.h1.editing_organization'), edit_organization_path
                 %li= link_to t('attributes.h1.editing_organization_info'), edit_organization_infos_organization_path
-                %li= link_to t('attributes.h1.upload_image'), organization_image_path
+                %li= link_to t('attributes.h1.upload_image'), edit_images_organization_path
                 %li= link_to t('attributes.h1.editing_view_design'), edit_view_designs_organization_path
                 %li= link_to t('attributes.h1.preview'), preview_organization_path
                 -if User.admin_user?(current_user)

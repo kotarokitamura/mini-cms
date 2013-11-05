@@ -29,7 +29,5 @@
           %ul
             %li= link_to t('iphone.organization'), edit_organization_path
             %li= link_to t('iphone.organization_info'), edit_organization_infos_organization_path
-            %li
-              %a{:href => "/organizations/image" }
-                = t('iphone.image')
+            %li= link_to t('iphone.image'), edit_images_organization_path
             %li= link_to t('iphone.design'), edit_view_designs_organization_path
