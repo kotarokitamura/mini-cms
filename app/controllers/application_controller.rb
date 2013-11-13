@@ -47,3 +47,4 @@ class ApplicationController < ActionController::Base
 end
 
 class InvalidUrlError < ::ActionController::ActionControllerError; end
+class ForbiddenError < ::ActionController::ActionControllerError; end
