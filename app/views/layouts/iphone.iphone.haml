@@ -20,22 +20,14 @@
           = t('iphone.settings')
         %h1
           = t('iphone.mini-cms')
-        %a{:href => "/organizations/homepage", 'data-icon' => "check"}
+        %a{:href => "#{preview_organization_path}"}
           = t('iphone.preview')
       %div{'data-role' => "content"}
         =yield
       %div{'data-role' => "footer", 'data-position' => "fixed"}
         %div{'data-role' => "navbar"}
           %ul
-            %li
-              %a{:href => "/organizations"}
-                = t('iphone.organization')
-            %li
-              %a{:href => "/organizations/organization_infos" }
-                = t('iphone.organization_info')
-            %li
-              %a{:href => "/organizations/image" }
-                = t('iphone.image')
-            %li
-              %a{:href => "/organizations/view_design" }
-                = t('iphone.design')
+            %li= link_to t('iphone.organization'), edit_organization_path
+            %li= link_to t('iphone.organization_info'), edit_organization_infos_organization_path
+            %li= link_to t('iphone.image'), edit_images_organization_path
+            %li= link_to t('iphone.design'), edit_view_designs_organization_path

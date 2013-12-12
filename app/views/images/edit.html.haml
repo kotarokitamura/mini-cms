@@ -1,7 +1,7 @@
 %h1
   = t('attributes.h1.upload_image')
 = image_tag @organization.images.first.logo.url(:thumb)
-= form_for(@organization, :url => :images) do |f|
+= form_for(@organization, :url => {action: 'update_images'}) do |f|
   - if @organization.errors.any?
     #error_explanation
       %h2
